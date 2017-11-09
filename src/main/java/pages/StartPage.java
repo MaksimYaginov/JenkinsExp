@@ -34,7 +34,7 @@ public class StartPage {
     }
 
     public Way2automationMenuPage goToWay2automationMenuPage() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOf(driver.findElement(submitButtonField)));
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOf(driver.findElement(submitButton)));
         Actions actions = new Actions(driver);
         actions.moveToElement(driver.findElement(widgetLink)).build().perform();
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(driver.findElement(widgetSubmenuMenu)));
