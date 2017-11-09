@@ -23,7 +23,7 @@ public class StartPage {
 
     private By passwordField = By.xpath("//form[@class='ajaxsubmit']//input[@name='password']");
 
-    private By submitButtonField = By.xpath("//form[@class='ajaxsubmit']//input[@type='submit']");
+    private By submitButton = By.xpath("//form[@class='ajaxsubmit']//input[@type='submit']");
 
     private By widgetLink = By.xpath("//ul[@id='toggleNav']//a[text()='Widget']");
 
@@ -49,7 +49,7 @@ public class StartPage {
         driver.findElement(cityField).sendKeys(Helper.generateString());
         driver.findElement(usernameField).sendKeys(Helper.generateString());
         driver.findElement(passwordField).sendKeys(Helper.generateString());
-        driver.findElement(submitButtonField).click();
+        driver.findElement(submitButton).click();
         return this.driver;
     }
 }
