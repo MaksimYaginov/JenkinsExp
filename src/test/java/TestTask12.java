@@ -15,6 +15,7 @@ public class TestTask12 {
 
     Way2automationMenuPage way2automationMenuPage;
     StartPage startPage;
+
     
     @BeforeTest
     public void setUp() {
