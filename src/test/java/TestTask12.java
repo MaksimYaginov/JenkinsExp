@@ -16,6 +16,7 @@ public class TestTask12 {
     Way2automationMenuPage way2automationMenuPage;
     StartPage startPage;
 
+    
     @BeforeTest
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/main/java/resources/chromedriver.exe");
