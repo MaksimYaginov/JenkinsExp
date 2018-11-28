@@ -39,7 +39,7 @@ public class AlertUITest extends BaseUITest {
                 .clickOnInputBoxButton()
                 .setTextInAlert(alertText);
 
-        Assert.assertEquals(alertPage.getTextFromAlert(), String.format("Hello %s! How are you today?", alertText));
+        Assert.assertNotEquals(alertPage.getTextFromAlert(), String.format("Hello %s! How are you today?", alertText));
     }
 
     @AfterTest(description = "Закрыть браузер", alwaysRun = true)
