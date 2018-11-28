@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestTask12">
-  <test name="TestTask12">
-    <classes>
-      <class name="TestTask12"/>
-    </classes>
+<suite name="UI tests">
+  <test name="UI tests">
+    <packages>
+      <package name="ui"/>
+    </packages>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

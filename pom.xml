@@ -4,13 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>TestTask12</groupId>
-    <artifactId>TestTask12</artifactId>
+    <groupId>ui.CursorTest</groupId>
+    <artifactId>ui.CursorTest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            <java.version>1.8</java.version>
+            <allure-version>2.6.0</allure-version>
+            <allure-attachments-version>2.6.0</allure-attachments-version>
+            <aspectj-version>1.8.10</aspectj-version>
+            <selenium-version>3.6.0</selenium-version>
+            <testng-version>6.11</testng-version>
     </properties>
 
     <build>
@@ -21,10 +27,10 @@
                 <version>2.20</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/java/testTask12.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/java/configuration/uiTests.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj-version}/aspectjweaver-${aspectj-version}.jar"
                     </argLine>
                     <systemProperties>
                         <property>
@@ -37,7 +43,7 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.8.10</version>
+                        <version>${aspectj-version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -45,8 +51,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -55,22 +61,22 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.11</version>
+            <version>${testng-version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.6.0</version>
+            <version>${selenium-version}</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <version>2.6.0</version>
+            <version>${allure-version}</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-attachments</artifactId>
-            <version>2.6.0</version>
+            <version>${allure-attachments-version}</version>
         </dependency>
     </dependencies>
 </project>
