@@ -1,8 +1,11 @@
 package ui;
 
 import helpers.Helper;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -27,12 +30,15 @@ public class CursorTest extends BaseUITest {
         driver.manage().window().maximize();
     }
 
+    @Feature("Way2Automation")
+    @Story("Cursor")
     @Test(description = "cursorTest")
     private void cursorTest() throws InterruptedException {
         registrationFrom = new RegistrationFrom(driver);
 
-        way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(), Helper.generateString() + "@test",
-                Helper.generateString(), Helper.generateString(), Helper.generateString());
+        way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(),
+                Helper.generateString() + "@test", Helper.generateString(), Helper.generateString(),
+                Helper.generateString());
         menuPage = way2AutomationPage.goToMenuPage()
                 .clickOnMenuWithSubMenuButton()
                 .moveToDelphiButton();
@@ -40,7 +46,7 @@ public class CursorTest extends BaseUITest {
         Assert.assertTrue(menuPage.delphiSubmenuIsPresent());
     }
 
-    @AfterTest(description = "Закрыть браузер", alwaysRun = true)
+    @AfterMethod(description = "Закрыть браузер", alwaysRun = true)
     public void closeBrowser() {
         driver.quit();
     }

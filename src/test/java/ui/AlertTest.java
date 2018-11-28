@@ -1,8 +1,13 @@
 package ui;
 
 import helpers.Helper;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.Stories;
+import io.qameta.allure.Story;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,21 +33,24 @@ public class AlertTest extends BaseUITest {
         driver.manage().window().maximize();
     }
 
+    @Feature("Way2Automation")
+    @Story("Alert")
     @Test(description = "alertTest")
     private void alertTest() throws InterruptedException {
         registrationFrom = new RegistrationFrom(driver);
 
-        way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(), Helper.generateString() + "@test",
-                Helper.generateString(), Helper.generateString(), Helper.generateString());
+        way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(),
+                Helper.generateString() + "@test", Helper.generateString(), Helper.generateString(),
+                Helper.generateString());
         alertPage = way2AutomationPage.goToAlertPage()
                 .clickOnInputAlertButton()
                 .clickOnInputBoxButton()
                 .setTextInAlert(alertText);
 
-        Assert.assertTrue(!alertPage.getTextFromAlert().equals( String.format("Hello %s! How are you today?", alertText)));
+        Assert.assertTrue(!alertPage.getTextFromAlert().equals(String.format("Hello %s! How are you today?", alertText)));
     }
 
-    @AfterTest(description = "Закрыть браузер", alwaysRun = true)
+    @AfterMethod(description = "Закрыть браузер", alwaysRun = true)
     public void closeBrowser() {
         driver.quit();
     }
