@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,12 +35,14 @@ public class AlertPage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("clickOnInputAlertButton")
     public AlertPage clickOnInputAlertButton() {
         clickButton(driver,inputAlertButton);
 
         return this;
     }
 
+    @Step("clickOnInputBoxButton")
     public AlertPage clickOnInputBoxButton() {
         switchToFrame(driver, iframe);
         clickButton(driver, demonstrateInputBoxButton);
@@ -47,12 +50,14 @@ public class AlertPage {
         return this;
     }
 
+    @Step("setTextInAlert")
     public AlertPage setTextInAlert(String text) {
         inputTextInAlert(driver, text);
 
         return this;
     }
 
+    @Step("getTextFromAlert")
     public String getTextFromAlert() {
         waitUntilElementVisible(driver, alertFieldText);
 
