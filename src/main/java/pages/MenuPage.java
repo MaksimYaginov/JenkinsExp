@@ -13,7 +13,7 @@ import static helpers.Helper.moveToElement;
 import static helpers.Helper.switchToFrame;
 import static helpers.Waiters.*;
 
-public class Way2AutomationMenuPage {
+public class MenuPage {
 
     private WebDriver driver;
 
@@ -29,20 +29,20 @@ public class Way2AutomationMenuPage {
     @FindBy(xpath = "//li[@id='ui-id-8']//li")
     private List<WebElement> delphiSubmenu;
 
-    Way2AutomationMenuPage(WebDriver driver) {
+    MenuPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     @Step("clickOnMenuWithSubMenuButton")
-    public Way2AutomationMenuPage clickOnMenuWithSubMenuButton() {
+    public MenuPage clickOnMenuWithSubMenuButton() {
         clickButton(driver, menuWithSubMenuButton);
 
         return this;
     }
 
     @Step("moveToDelphiButton")
-    public Way2AutomationMenuPage moveToDelphiButton() {
+    public MenuPage moveToDelphiButton() {
         switchToFrame(driver, iframe);
         waitUntilElementVisible(driver, delphiButton);
         moveToElement(driver, delphiButton);

@@ -1,5 +1,6 @@
 package helpers;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,6 +20,12 @@ public class Helper {
         actions.moveToElement(webElement).build().perform();
 
         return webElement;
+    }
+
+    public static void inputTextInAlert(WebDriver driver,String text){
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys(text);
+        alert.accept();
     }
 
     public static String generateString() {
