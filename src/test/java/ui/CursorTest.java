@@ -7,18 +7,17 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageElements.RegistrationFrom;
-import pages.AlertPage;
 import pages.Way2AutomationPage;
+import pages.MenuPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class AlertUITest extends BaseUITest {
+public class CursorTest extends BaseUITest {
 
-    private AlertPage alertPage;
+    private MenuPage menuPage;
     private RegistrationFrom registrationFrom;
     private Way2AutomationPage way2AutomationPage;
 
-    private final String alertText = "Autotest alert";
 
     @BeforeMethod(description = "Открыть браузер")
     public void openBrowser() {
@@ -28,18 +27,17 @@ public class AlertUITest extends BaseUITest {
         driver.manage().window().maximize();
     }
 
-    @Test(description = "alertTest")
-    private void alertTest() throws InterruptedException {
+    @Test(description = "cursorTest")
+    private void cursorTest() throws InterruptedException {
         registrationFrom = new RegistrationFrom(driver);
 
         way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(), Helper.generateString() + "@test",
                 Helper.generateString(), Helper.generateString(), Helper.generateString());
-        alertPage = way2AutomationPage.goToAlertPage()
-                .clickOnInputAlertButton()
-                .clickOnInputBoxButton()
-                .setTextInAlert(alertText);
+        menuPage = way2AutomationPage.goToMenuPage()
+                .clickOnMenuWithSubMenuButton()
+                .moveToDelphiButton();
 
-        Assert.assertNotEquals(alertPage.getTextFromAlert(), String.format("Hello %s! How are you today?", alertText));
+        Assert.assertTrue(menuPage.delphiSubmenuIsPresent());
     }
 
     @AfterTest(description = "Закрыть браузер", alwaysRun = true)
