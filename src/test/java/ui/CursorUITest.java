@@ -1,7 +1,6 @@
 package ui;
 
 import helpers.Helper;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -13,9 +12,7 @@ import pages.MenuPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class CursorTest extends BaseTest {
-
-    private WebDriver driver;
+public class CursorUITest extends BaseUITest {
 
     private MenuPage menuPage;
     private RegistrationFrom registrationFrom;

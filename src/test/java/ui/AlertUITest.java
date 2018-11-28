@@ -1,7 +1,6 @@
 package ui;
 
 import helpers.Helper;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -9,14 +8,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageElements.RegistrationFrom;
 import pages.AlertPage;
-import pages.MenuPage;
 import pages.Way2AutomationPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class AlertTest extends BaseTest {
+public class AlertUITest extends BaseUITest {
 
-    private WebDriver driver;
     private AlertPage alertPage;
     private RegistrationFrom registrationFrom;
     private Way2AutomationPage way2AutomationPage;
