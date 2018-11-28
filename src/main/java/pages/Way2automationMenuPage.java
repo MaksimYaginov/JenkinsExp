@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,7 @@ public class Way2automationMenuPage {
         driver.findElement(menuWithSubMenuButton).click();
     }
 
+    @Step("moveToDelphiButton")
     public void moveToDelphiButton() {
         driver.switchTo().frame(driver.findElement(iframe));
         Actions actions = new Actions(driver);
@@ -36,6 +38,7 @@ public class Way2automationMenuPage {
         new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfAllElements(driver.findElements(delphiSubmenu)));
     }
 
+    @Step("delphiSubmenuIsPresent")
     public boolean delphiSubmenuIsPresent() {
         boolean coursesTypesIsPresent = false;
         List<WebElement> coursesTypesElements = driver.findElements(delphiSubmenu);

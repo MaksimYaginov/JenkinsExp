@@ -1,6 +1,7 @@
 package pages;
 
 import helpers.Helper;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -33,6 +34,7 @@ public class StartPage {
         this.driver = driver;
     }
 
+    @Step("goToWay2automationMenuPage")
     public Way2automationMenuPage goToWay2automationMenuPage() {
         new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOf(driver.findElement(submitButton)));
         Actions actions = new Actions(driver);
@@ -42,6 +44,7 @@ public class StartPage {
         return new Way2automationMenuPage(driver);
     }
 
+    @Step("registration")
     public WebDriver registration() {
         driver.findElement(nameField).sendKeys(Helper.generateString());
         driver.findElement(phoneField).sendKeys(Helper.generateString());
