@@ -2,13 +2,10 @@ package ui;
 
 import helpers.Helper;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Severity;
-import io.qameta.allure.Stories;
 import io.qameta.allure.Story;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageElements.RegistrationFrom;

@@ -6,13 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
-
 import static helpers.CustomSeleniumMethods.clickButton;
 import static helpers.Helper.inputTextInAlert;
 import static helpers.Helper.switchToFrame;
 import static helpers.Waiters.waitUntilElementVisible;
-import static java.awt.SystemColor.text;
 
 public class AlertPage {
 
