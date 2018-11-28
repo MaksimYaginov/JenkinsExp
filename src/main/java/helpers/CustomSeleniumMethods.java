@@ -8,13 +8,13 @@ import static helpers.Waiters.waitUntilElementClickable;
 
 public class CustomSeleniumMethods {
 
-    @Step("clickButton ({1})")
+    @Step("clickButton")
     public static void clickButton(WebDriver driver, WebElement webElement){
         waitUntilElementClickable(driver,webElement);
         webElement.click();
     }
 
-    @Step("Send {2} into {1}")
+    @Step("send keys into field")
     public static void sendKeysIntoField(WebDriver driver, WebElement webElement, String string){
         waitUntilElementClickable(driver,webElement);
         webElement.sendKeys(string);

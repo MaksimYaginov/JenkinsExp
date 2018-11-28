@@ -24,10 +24,10 @@ public class AlertTest extends BaseTest {
     private final String alertText = "Autotest alert";
 
     @BeforeMethod(description = "Открыть браузер")
-    public void setUp() {
+    public void openBrowser() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(IMPLICITY_WAIT, TimeUnit.SECONDS);
-        driver.get("http://way2automation.com/way2auto_jquery/index.php");
+        driver.get(WAY_TO_AUTOMATION_URL);
         driver.manage().window().maximize();
     }
 
@@ -46,7 +46,7 @@ public class AlertTest extends BaseTest {
     }
 
     @AfterTest(description = "Закрыть браузер", alwaysRun = true)
-    public void tearDown() {
+    public void closeBrowser() {
         driver.quit();
     }
 }

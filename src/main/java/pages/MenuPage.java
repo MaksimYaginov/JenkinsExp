@@ -17,7 +17,7 @@ public class MenuPage {
 
     private WebDriver driver;
 
-    @FindBy(css = "ul.responsive-tabs li:nth-child(2)")
+    @FindBy(xpath = "//a[text()='Menu With Sub Menu']")
     private WebElement menuWithSubMenuButton;
 
     @FindBy(xpath = "//div[@id='example-1-tab-2']//iframe")
@@ -34,14 +34,14 @@ public class MenuPage {
         PageFactory.initElements(driver, this);
     }
 
-    @Step("clickOnMenuWithSubMenuButton")
+    @Step("Click On Menu With Sub Menu Button")
     public MenuPage clickOnMenuWithSubMenuButton() {
         clickButton(driver, menuWithSubMenuButton);
 
         return this;
     }
 
-    @Step("moveToDelphiButton")
+    @Step("Move To Delphi Button")
     public MenuPage moveToDelphiButton() {
         switchToFrame(driver, iframe);
         waitUntilElementVisible(driver, delphiButton);
@@ -51,7 +51,7 @@ public class MenuPage {
         return this;
     }
 
-    @Step("delphiSubmenuIsPresent")
+    @Step("Delphi Submenu Is Present")
     public boolean delphiSubmenuIsPresent() {
         boolean coursesTypesIsPresent = false;
 

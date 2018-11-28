@@ -14,30 +14,30 @@ public class Way2AutomationPage {
 
     private WebDriver driver;
 
-    @FindBy(xpath = "//ul[@id='toggleNav']//a[text()='Widget']")
+    @FindBy(xpath = "//a[text()='Widget']")
     private WebElement widgetLink;
 
-    @FindBy(xpath = "//ul[@id='toggleNav']//a[text()='Alert']")
+    @FindBy(xpath = "//a[text()='Alert']")
     private WebElement alertLink;
 
-    @FindBy(xpath = "//ul[@id='toggleNav']//a[text()='Menu']")
-    private WebElement widgetSubmenuMenu;
+    @FindBy(xpath = "//a[text()='Menu']")
+    private WebElement widgetMenu;
 
     public Way2AutomationPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @Step("goToMenuPage")
+    @Step("Go To Menu Page")
     public MenuPage goToMenuPage() {
         waitUntilElementClickable(driver, widgetLink);
         moveToElement(driver, widgetLink);
-        clickButton(driver, widgetSubmenuMenu);
+        clickButton(driver, widgetMenu);
 
         return new MenuPage(driver);
     }
 
-    @Step("goToAlertPage")
+    @Step("Go To Alert Page")
     public AlertPage goToAlertPage() {
         clickButton(driver, alertLink);
 
