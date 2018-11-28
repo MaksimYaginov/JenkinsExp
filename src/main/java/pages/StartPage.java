@@ -45,14 +45,14 @@ public class StartPage {
     }
 
     @Step("registration")
-    public WebDriver registration() {
-        driver.findElement(nameField).sendKeys(Helper.generateString());
-        driver.findElement(phoneField).sendKeys(Helper.generateString());
-        driver.findElement(emailField).sendKeys(Helper.generateString() + "@test");
-        driver.findElement(cityField).sendKeys(Helper.generateString());
-        driver.findElement(usernameField).sendKeys(Helper.generateString());
-        driver.findElement(passwordField).sendKeys(Helper.generateString());
+    public StartPage registration(String name, String phone, String email, String city, String userName, String password) {
+        driver.findElement(nameField).sendKeys(name);
+        driver.findElement(phoneField).sendKeys(phone);
+        driver.findElement(emailField).sendKeys(email);
+        driver.findElement(cityField).sendKeys(city);
+        driver.findElement(usernameField).sendKeys(userName);
+        driver.findElement(passwordField).sendKeys(password);
         driver.findElement(submitButton).click();
-        return this.driver;
+        return this;
     }
 }

@@ -1,3 +1,5 @@
+import helpers.Helper;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -16,8 +18,8 @@ public class TestTask12 {
     Way2automationMenuPage way2automationMenuPage;
     StartPage startPage;
 
-    
-    @BeforeTest
+
+    @BeforeTest(description = "Открыть браузер")
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/main/java/resources/chromedriver.exe");
         driver = new ChromeDriver();
@@ -26,18 +28,19 @@ public class TestTask12 {
         driver.manage().window().maximize();
     }
 
-    @Test
+    @Test(description = "cursorTest")
     private void cursorTest() {
         startPage = new StartPage(driver);
 
-        startPage.registration();
+        startPage.registration(Helper.generateString(), Helper.generateString(), Helper.generateString() + "@test",
+                Helper.generateString(), Helper.generateString(), Helper.generateString());
         way2automationMenuPage = startPage.goToWay2automationMenuPage();
         way2automationMenuPage.clickOnMenuWithSubMenuButton();
         way2automationMenuPage.moveToDelphiButton();
         Assert.assertTrue(way2automationMenuPage.delphiSubmenuIsPresent());
     }
 
-    @AfterTest
+    @AfterTest(description = "Открыть браузер")
     public void tearDown() {
         driver.quit();
     }
