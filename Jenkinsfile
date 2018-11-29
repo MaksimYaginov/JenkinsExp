@@ -13,14 +13,12 @@ pipeline {
                     bat(/mvn clean compile/)
                 }
             }
-        }
 
         stage('Test'){
             steps {
                     bat 'mvn clean test'
                 }
            }
-        }
 
         stage('Results'){
              steps {
