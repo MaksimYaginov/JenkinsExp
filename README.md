@@ -21,4 +21,4 @@
 ![Screenshot](src/main/java/resources/parallel_builds.jpg) 
 
 ## Pipeline
-![Screenshot](src/main/java/resources/parallel_builds.jpg) 
+![Screenshot](src/main/java/resources/pipeline.jpg) 
