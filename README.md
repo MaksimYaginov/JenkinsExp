@@ -19,3 +19,6 @@
 	
 ## Run parallel builds
 ![Screenshot](src/main/java/resources/parallel_builds.jpg) 
+
+## Pipeline
+![Screenshot](src/main/java/resources/parallel_builds.jpg) 
