@@ -9,25 +9,23 @@ pipeline {
 
     stages {
 
-        stage('Compilation') {
+        stage('Compilation Tests') {
             steps {
                     bat(/mvn clean compile/)
                 }
             }
 
-        stage('Test'){
+        stage('Run Tests'){
             steps {
                     bat 'mvn clean test'
                 }
            }
+        }
 
-        stage('Results'){
-            post {
-                always {
-                    testng '**/target/surefire-reports/TEST-*.xml'
-                    archive 'target/*.jar'
-                }
+    post {
+         always {
+            testng '**/target/surefire-reports/TEST-*.xml'
+            archive 'target/*.jar'
             }
         }
-    }
 }
