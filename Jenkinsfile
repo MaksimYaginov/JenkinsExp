@@ -2,21 +2,22 @@ pipeline {
 
     agent any
 
+    tools {
+            maven 'maven_3.6.0'
+        }
+
     stages {
 
         stage('Compilation') {
             steps {
-                withMaven(maven: 'maven_3.6.0'){
-                        bat(/mvn clean compile/)
+                    bat(/mvn clean compile/)
                 }
             }
         }
 
         stage('Test'){
             steps {
-                withMaven(maven: 'maven_3.6.0') {
                     bat 'mvn clean test'
-                    te 'reports/**/*.xml'
                 }
            }
         }
@@ -24,7 +25,7 @@ pipeline {
         stage('Results'){
              steps {
                 testng '**/target/surefire-reports/TEST-*.xml'
-                 archive 'target/*.jar'
+                archive 'target/*.jar'
              }
          }
     }
