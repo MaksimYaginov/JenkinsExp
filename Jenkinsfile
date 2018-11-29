@@ -24,8 +24,7 @@ pipeline {
 
     post {
          always {
-            testng '**/target/surefire-reports/TEST-*.xml'
-            archive 'target/*.jar'
+            step([$class: 'Publisher', reportFilenamePattern: '**/target/surefire-reports/testng-results.xml'])
             }
         }
 }
