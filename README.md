@@ -1,4 +1,4 @@
-## Jenkins Exp
+# Jenkins Exp
 
 Несколько UI автотестов
 + Selenium
@@ -8,14 +8,14 @@
 + Jenkins
 + GitHub
 
-# Jenkins
+## Jenkins
 ![Screenshot](src/main/java/resources/job.jpg)
 
-# Screenshot
+## Screenshot
 ![Screenshot](src/main/java/resources/attach.jpg)   
 
-# Nodes
+## Nodes
 ![Screenshot](src/main/java/resources/nodes.jpg) 
 	
-# Run parallel builds
+## Run parallel builds
 ![Screenshot](src/main/java/resources/parallel_builds.jpg) 
