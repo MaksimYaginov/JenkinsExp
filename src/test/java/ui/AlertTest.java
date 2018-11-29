@@ -33,7 +33,7 @@ public class AlertTest extends BaseUITest {
     @Feature("Way2Automation")
     @Story("Alert")
     @Test(description = "alertTest")
-    private void alertTest() throws InterruptedException {
+    public void alertTest() {
         registrationFrom = new RegistrationFrom(driver);
 
         way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(),

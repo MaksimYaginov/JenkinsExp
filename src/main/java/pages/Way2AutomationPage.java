@@ -23,6 +23,12 @@ public class Way2AutomationPage {
     @FindBy(xpath = "//a[text()='Menu']")
     private WebElement widgetMenu;
 
+    @FindBy(xpath = "//a[text()='Interaction']")
+    private WebElement interactionLink;
+
+    @FindBy(xpath = "//a[text()='Droppable']")
+    private WebElement interactionDroppable;
+
     public Way2AutomationPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -42,5 +48,14 @@ public class Way2AutomationPage {
         clickButton(driver, alertLink);
 
         return new AlertPage(driver);
+    }
+
+    @Step("Go To Droppable Page")
+    public DroppablePage goToDroppablePage() {
+        waitUntilElementClickable(driver, interactionLink);
+        moveToElement(driver, interactionLink);
+        clickButton(driver, interactionDroppable);
+
+        return new DroppablePage(driver);
     }
 }

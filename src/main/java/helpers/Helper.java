@@ -22,6 +22,11 @@ public class Helper {
         return webElement;
     }
 
+    public static void dragAndDropElements(WebDriver driver, WebElement draggableElement, WebElement droppableElement) {
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(draggableElement, droppableElement).build().perform();
+    }
+
     public static void inputTextInAlert(WebDriver driver,String text){
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(text);
