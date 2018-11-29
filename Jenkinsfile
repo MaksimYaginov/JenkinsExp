@@ -22,10 +22,12 @@ pipeline {
            }
 
         stage('Results'){
-             steps {
-                testng '**/target/surefire-reports/TEST-*.xml'
-                archive 'target/*.jar'
-             }
-         }
+            post {
+                always {
+                    testng '**/target/surefire-reports/TEST-*.xml'
+                    archive 'target/*.jar'
+                }
+            }
+        }
     }
 }
