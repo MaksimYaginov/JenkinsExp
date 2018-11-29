@@ -42,7 +42,7 @@ public class CursorTest extends BaseUITest {
                 .clickOnMenuWithSubMenuButton()
                 .moveToDelphiButton();
 
-        Assert.assertTrue(!menuPage.delphiSubmenuIsPresent());
+        Assert.assertTrue(menuPage.delphiSubmenuIsPresent());
     }
 
     @AfterMethod(description = "Закрыть браузер", alwaysRun = true)
