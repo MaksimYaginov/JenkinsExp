@@ -15,6 +15,21 @@ pipeline {
                 }
             }
 
+        stage("SonarQube analysis") {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    bat(/mvn clean package sonar:sonar/)
+                          }
+                        }
+                      }
+
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                    waitForQualityGate abortPipeline: true
+                          }
+                        }
+
         stage('Run Tests'){
             steps {
                     bat 'mvn clean test'
