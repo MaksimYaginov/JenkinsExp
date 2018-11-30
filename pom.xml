@@ -11,16 +11,25 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-            <java.version>1.8</java.version>
-            <allure-version>2.6.0</allure-version>
-            <allure-attachments-version>2.6.0</allure-attachments-version>
-            <aspectj-version>1.8.10</aspectj-version>
-            <selenium-version>3.6.0</selenium-version>
-            <testng-version>6.11</testng-version>
+        <java.version>1.8</java.version>
+        <allure-version>2.6.0</allure-version>
+        <allure-attachments-version>2.6.0</allure-attachments-version>
+        <aspectj-version>1.8.10</aspectj-version>
+        <selenium-version>3.6.0</selenium-version>
+        <testng-version>6.11</testng-version>
+        <sonar-version>3.5.0.1254</sonar-version>
+
+        <sonar.host.url>http://localhost:9000</sonar.host.url>
+        <sonar.login>28f8c86ebb3faa1162a9a440f742d489b9ee38fd</sonar.login>
     </properties>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-version}</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
