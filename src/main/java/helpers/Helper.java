@@ -9,6 +9,8 @@ import java.util.Random;
 
 public class Helper {
 
+    private static Random random = new Random();
+
     public static WebElement switchToFrame(WebDriver driver, WebElement frame) {
         driver.switchTo().frame(frame);
 
@@ -34,11 +36,10 @@ public class Helper {
     }
 
     public static String generateString() {
-        Random random = new Random();
-        String SOURCES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        String sources = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         char[] text = new char[6];
         for (int i = 0; i < 6; i++) {
-            text[i] = SOURCES.charAt(random.nextInt(SOURCES.length()));
+            text[i] = sources.charAt(random.nextInt(sources.length()));
         }
 
         return new String(text);
