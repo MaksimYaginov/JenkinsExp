@@ -22,3 +22,7 @@
 
 ## Pipeline
 ![Screenshot](src/main/java/resources/pipeline.jpg) 
+
+## Sonar Qube
+![Screenshot](src/main/java/resources/sonar_jenkins.jpg) 
+![Screenshot](src/main/java/resources/sonar.jpg) 
