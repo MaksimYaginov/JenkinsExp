@@ -29,19 +29,19 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-
-            stage('Run Tests') {
-                steps {
-                    bat 'mvn clean test'
-                }
-            }
         }
 
-        post {
-            always {
-                step([$class: 'Publisher', reportFilenamePattern: '**/target/surefire-reports/testng-results.xml'])
-                allure results: [[path: '**/target/allure-results']]
+        stage('Run Tests') {
+            steps {
+                bat 'mvn clean test'
             }
+        }
+    }
+
+    post {
+        always {
+            step([$class: 'Publisher', reportFilenamePattern: '**/target/surefire-reports/testng-results.xml'])
+            allure results: [[path: '**/target/allure-results']]
         }
     }
 }
