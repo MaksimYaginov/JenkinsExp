@@ -1,20 +1,17 @@
 package ui;
 
-import helpers.Helper;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageElements.RegistrationFrom;
 import pages.AlertPage;
 import pages.Way2AutomationPage;
+import ui.base.BaseWay2AutomationUITest;
 
-import java.util.concurrent.TimeUnit;
+import static helpers.Helper.generateString;
 
-public class AlertTest extends BaseUITest {
+public class AlertTest extends BaseWay2AutomationUITest {
 
     private AlertPage alertPage;
     private RegistrationFrom registrationFrom;
@@ -22,33 +19,19 @@ public class AlertTest extends BaseUITest {
 
     private final String alertText = "Autotest alert";
 
-    @BeforeMethod(description = "Открыть браузер")
-    public void openBrowser() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(IMPLICITY_WAIT, TimeUnit.SECONDS);
-        driver.get(WAY_TO_AUTOMATION_URL);
-        driver.manage().window().maximize();
-    }
-
     @Feature("Way2Automation")
     @Story("Alert")
-    @Test(description = "alertTest")
+    @Test(description = "Smoke alert test")
     public void alertTest() {
         registrationFrom = new RegistrationFrom(driver);
 
-        way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(),
-                Helper.generateString() + "@test", Helper.generateString(), Helper.generateString(),
-                Helper.generateString());
+        way2AutomationPage = registrationFrom.registration(generateString(), generateString(),
+                generateString() + "@test", generateString(), generateString(), generateString());
         alertPage = way2AutomationPage.goToAlertPage()
                 .clickOnInputAlertButton()
                 .clickOnInputBoxButton()
                 .setTextInAlert(alertText);
 
         Assert.assertEquals(alertPage.getTextFromAlert(), String.format("Hello %s! How are you today?", alertText));
-    }
-
-    @AfterMethod(description = "Закрыть браузер", alwaysRun = true)
-    public void closeBrowser() {
-        driver.quit();
     }
 }

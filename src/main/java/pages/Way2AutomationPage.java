@@ -29,12 +29,15 @@ public class Way2AutomationPage {
     @FindBy(xpath = "//a[text()='Droppable']")
     private WebElement interactionDroppable;
 
+    @FindBy(xpath = "//a[text()='Frames and Windows']")
+    private WebElement framesAndWindowsButton ;
+
     public Way2AutomationPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @Step("Go To Menu Page")
+    @Step("Go to Menu Page")
     public MenuPage goToMenuPage() {
         waitUntilElementClickable(driver, widgetLink);
         moveToElement(driver, widgetLink);
@@ -43,19 +46,27 @@ public class Way2AutomationPage {
         return new MenuPage(driver);
     }
 
-    @Step("Go To Alert Page")
+    @Step("Go to Alert Page")
     public AlertPage goToAlertPage() {
         clickButton(driver, alertLink);
 
         return new AlertPage(driver);
     }
 
-    @Step("Go To Droppable Page")
+    @Step("Go to Droppable Page")
     public DroppablePage goToDroppablePage() {
         waitUntilElementClickable(driver, interactionLink);
         moveToElement(driver, interactionLink);
         clickButton(driver, interactionDroppable);
 
         return new DroppablePage(driver);
+    }
+
+    @Step("Go to Frames and Windows Page")
+    public FramesAndWindowsPage goToFramesAndWindowsPage() {
+        waitUntilElementClickable(driver, framesAndWindowsButton);
+        clickButton(driver, framesAndWindowsButton);
+
+        return new FramesAndWindowsPage(driver);
     }
 }
