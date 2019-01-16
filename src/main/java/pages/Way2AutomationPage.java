@@ -30,7 +30,7 @@ public class Way2AutomationPage {
     private WebElement interactionDroppable;
 
     @FindBy(xpath = "//a[text()='Frames and Windows']")
-    private WebElement framesAndWindowsButton ;
+    private WebElement framesAndWindowsButton;
 
     public Way2AutomationPage(WebDriver driver) {
         this.driver = driver;
@@ -64,7 +64,6 @@ public class Way2AutomationPage {
 
     @Step("Go to Frames and Windows Page")
     public FramesAndWindowsPage goToFramesAndWindowsPage() {
-        waitUntilElementClickable(driver, framesAndWindowsButton);
         clickButton(driver, framesAndWindowsButton);
 
         return new FramesAndWindowsPage(driver);

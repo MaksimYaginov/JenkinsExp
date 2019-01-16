@@ -30,8 +30,10 @@ public class FramesAndWindowsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void openMultipleWindowsButtonClick() {
+    public FramesAndWindowsPage openMultipleWindowsButtonClick() {
         clickButton(driver, openMultipleWindowsButton);
+
+        return this;
     }
 
     public void openMultiplePagesLinkclick() {
