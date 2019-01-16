@@ -1,4 +1,4 @@
-package ui;
+package ui.base;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -13,16 +13,14 @@ public class BaseUITest implements IHookable {
 
     protected WebDriver driver;
     protected final static int IMPLICITY_WAIT = 10;
-    protected final static String WAY_TO_AUTOMATION_URL = "http://way2automation.com/way2auto_jquery/index.php";
 
-    @BeforeSuite(description = "Задать настройки браузера")
+    @BeforeSuite(description = "Set driver settings")
     public void setBrowserSettings() {
         System.setProperty("webdriver.chrome.driver", "src/main/java/resources/chromedriver.exe");
     }
 
     @Override
-    public final void run(final IHookCallBack callBack,
-                          final ITestResult testResult) {
+    public final void run(final IHookCallBack callBack, final ITestResult testResult) {
         callBack.runTestMethod(testResult);
         if (testResult.getThrowable() != null) {
             takeScreenShot(testResult.getMethod().getMethodName());

@@ -1,20 +1,17 @@
 package ui;
 
-import helpers.Helper;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageElements.RegistrationFrom;
 import pages.DroppablePage;
 import pages.Way2AutomationPage;
+import ui.base.BaseWay2AutomationUITest;
 
-import java.util.concurrent.TimeUnit;
+import static helpers.Helper.generateString;
 
-public class DragAndDropTest extends BaseUITest {
+public class DragAndDropTest extends BaseWay2AutomationUITest {
 
     private DroppablePage droppablePage;
     private RegistrationFrom registrationFrom;
@@ -22,31 +19,17 @@ public class DragAndDropTest extends BaseUITest {
 
     private final String expectedDroppableText = "Dropped!";
 
-    @BeforeMethod(description = "Открыть браузер")
-    public void openBrowser() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(IMPLICITY_WAIT, TimeUnit.SECONDS);
-        driver.get(WAY_TO_AUTOMATION_URL);
-        driver.manage().window().maximize();
-    }
-
     @Feature("Way2Automation")
     @Story("DragAndDrop")
-    @Test(description = "dragAndDropTest")
+    @Test(description = "Smoke drag and drop test")
     public void dragAndDropTest() {
         registrationFrom = new RegistrationFrom(driver);
 
-        way2AutomationPage = registrationFrom.registration(Helper.generateString(), Helper.generateString(),
-                Helper.generateString() + "@test", Helper.generateString(), Helper.generateString(),
-                Helper.generateString());
+        way2AutomationPage = registrationFrom.registration(generateString(), generateString(),
+                generateString() + "@test", generateString(), generateString(), generateString());
         droppablePage = way2AutomationPage.goToDroppablePage()
                 .dragAndDrop();
 
         Assert.assertEquals(droppablePage.getDroppableElementText(), expectedDroppableText);
-    }
-
-    @AfterMethod(description = "Закрыть браузер", alwaysRun = true)
-    public void closeBrowser() {
-        driver.quit();
     }
 }

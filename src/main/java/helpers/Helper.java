@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Helper {
@@ -43,5 +45,12 @@ public class Helper {
         }
 
         return new String(text);
+    }
+
+    public static List<String> getAllOpenTabs(WebDriver driver) {
+        List<String> listOfTabs = new ArrayList<>();
+        listOfTabs.addAll(driver.getWindowHandles());
+
+        return listOfTabs;
     }
 }
