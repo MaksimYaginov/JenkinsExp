@@ -30,8 +30,8 @@ public class TabsTest extends BaseWay2AutomationUITest {
                 generateString() + "@test", generateString(), generateString(), generateString());
         framesAndWindowsPage = way2AutomationPage.goToFramesAndWindowsPage();
 
-        framesAndWindowsPage.openMultipleWindowsButtonClick();
-        framesAndWindowsPage.openMultiplePagesLinkclick();
+        framesAndWindowsPage.openMultipleWindowsButtonClick()
+                .openMultiplePagesLinkclick();
         tabNumberBefore = getAllOpenTabs(driver).size();
         framesAndWindowsPage.switchToNewTab(1);
         framesAndWindowsPage.openWindowLinkClick();
